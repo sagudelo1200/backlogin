@@ -62,6 +62,8 @@ export const actualizarLogin = async(req, res)=>{
         let resultado = await pool.query(` 
             update cliente
             set
+            user = '${info.user}',
+            name = '${info.name}',
             password = '${info.password}'
             where iduser = ${info.iduser}
     `);
