@@ -1,4 +1,5 @@
 import { pool } from "../../config/db.mysql.js";
+import bcryptjs from 'bcryptjs';
 
 //Importar token para loguearse
 import { tokenSign } from "../middlewares/middlewares.Login.js";
@@ -7,13 +8,15 @@ import { tokenSign } from "../middlewares/middlewares.Login.js";
 export const crearLogin = async(req, res)=>{
     let info = req.body;
 
+    let contrasenaEncriptada = await bcryptjs.hash(info.password,8);
+    
     try {
         let resultado = await pool.query(` 
         insert into cliente (
         iduser, user, name, password) values
         (
             ${info.iduser}, '${info.user}',
-            '${info.name }', '${info.password}'
+            '${info.name }', '${contrasenaEncriptada}'
            
         )
     `);

@@ -6,7 +6,7 @@ import { actualizarLogin, crearLogin, eliminarLogin, mostrarLogin, listarLogin, 
 //Importa el permiso para loguearse
 import { validarPermiso,  } from "../middlewares/middlewares.Login.js";
 
-import bcryptjs from 'bcryptjs';
+// import bcryptjs from 'bcryptjs';
 
 //Declarar variables
 const rutaLogin = Router();
@@ -24,15 +24,15 @@ rutaLogin.post("/login", loginLogin);
 //     res.json({"mensaje":"luisa"});
 // });
 
-rutaLogin.post("/registro", async (req, res)=>{
-    const{usuario, nombre, contrasena}=req.body;
+// rutaLogin.post("/registro", async (req, res)=>{
+//     const{usuario, nombre, contrasena}=req.body;
 
-  try {
-    let contrasenaEncriptada = await bcryptjs.hash(contrasena,8);
-    console.log(contrasenaEncriptada)
-  } catch (error) {
-    throw error;
-  }
-})
+//   try {
+//     let contrasenaEncriptada = await bcryptjs.hash(contrasena,8);
+//     console.log(contrasenaEncriptada)
+//   } catch (error) {
+//     throw error;
+//   }
+// })
 
 export default rutaLogin;
