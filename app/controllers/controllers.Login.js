@@ -154,7 +154,6 @@ export const loginLogin = async(req, res)=>{
         });
         
         //Guardar token en las cookies
-        
        res.json({
         respuesta:"Logueo correcto",
         estado: true,
@@ -167,5 +166,6 @@ export const loginLogin = async(req, res)=>{
             type: error
         })
     }
+    
 }
 
