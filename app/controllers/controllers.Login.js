@@ -8,7 +8,7 @@ import { tokenSign } from "../middlewares/middlewares.Login.js";
 export const crearLogin = async(req, res)=>{
     let info = req.body;
 
-    let contrasenaEncriptada = await bcryptjs.hash(info.password,8);
+    let contrasenaEncriptada = await bcryptjs.hash(info.password,5);
     
     try {
         let resultado = await pool.query(` 
